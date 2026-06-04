@@ -1,6 +1,6 @@
 let donors=[];
 
-fetch("data/donors.json")
+fetch("donors.json")
 .then(response=>response.json())
 .then(data=>{
 donors=data;
