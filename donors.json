@@ -1,12 +1,83 @@
 [
-{
-"name":"Student 1",
-"department":"Civil",
-"blood":"O+"
-},
-{
-"name":"Student 2",
-"department":"IT",
-"blood":"A+"
-}
+  {
+    "name": "M. Keerthana",
+    "regno": "610223103004",
+    "department": "Civil Engineering",
+    "year": "III YEAR",
+    "phone": "8807787570",
+    "email": "keerthanaindhu01@gmail.com",
+    "blood": "O+"
+  },
+  {
+    "name": "Pranesh S",
+    "regno": "610223121033",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9360249427",
+    "email": "sivampranesh@gmail.com",
+    "blood": "O+"
+  },
+  {
+    "name": "Preethi R",
+    "regno": "610223121034",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9445164803",
+    "email": "preethiradhas@gmail.com",
+    "blood": "B+"
+  },
+  {
+    "name": "Priyadharshini M",
+    "regno": "610223121035",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9597793134",
+    "email": "priyadharshinimohan24@gmail.com",
+    "blood": "B+"
+  },
+  {
+    "name": "Ragul R",
+    "regno": "610223121036",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9342721831",
+    "email": "ragulravi702@gmail.com",
+    "blood": "O+"
+  },
+  {
+    "name": "Sanjay G",
+    "regno": "610223121037",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "7092497677",
+    "email": "sanjaysonu808@gmail.com",
+    "blood": "O+"
+  },
+  {
+    "name": "Santhiya S",
+    "regno": "610223121038",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9361664152",
+    "email": "santhiyasakthivel18@gmail.com",
+    "blood": "A1+"
+  },
+  {
+    "name": "Saran Kumar B",
+    "regno": "610223121039",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9345638166",
+    "email": "sarankumarb2005@gmail.com",
+    "blood": "B+"
+  },
+  {
+    "name": "Sarathi S",
+    "regno": "610223121040",
+    "department": "Biomedical Engineering",
+    "year": "III YEAR",
+    "phone": "9025985834",
+    "email": "sarathisenthil470@gmail.com",
+    "blood": "B+"
+  }
 ]
