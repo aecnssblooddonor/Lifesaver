@@ -3,62 +3,32 @@
 <head>
 <title>Admin Login</title>
 </head>
-
 <body>
 
 <h2>Admin Login</h2>
 
-<input id="email" placeholder="Email">
+<input type="password" id="password" placeholder="Enter Password">
 
-<input
-id="password"
-type="password"
-placeholder="Password">
+<button onclick="login()">Login</button>
 
-<button onclick="login()">
-Login
-</button>
+<script>
+function login() {
 
-<script type="module">
+    const password =
+    document.getElementById("password").value;
 
-import {
-signInWithEmailAndPassword
+    if(password === "AECNSS2026") {
+
+        window.location.href =
+        "dashboard.html";
+
+    }
+    else {
+
+        alert("Wrong Password");
+
+    }
 }
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-auth
-}
-from
-"../js/firebase-config.js";
-
-window.login=()=>{
-
-let email=
-document.getElementById("email").value;
-
-let password=
-document.getElementById("password").value;
-
-signInWithEmailAndPassword(
-auth,
-email,
-password
-)
-.then(()=>{
-
-location.href="dashboard.html";
-
-})
-.catch(error=>{
-
-alert(error.message);
-
-});
-
-}
-
 </script>
 
 </body>
