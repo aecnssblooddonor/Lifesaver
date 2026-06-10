@@ -4,24 +4,24 @@ Papa.parse("donors.csv", {
     download: true,
     header: true,
     skipEmptyLines: true,
-    delimiter: ";",   // add this line
 
     complete: function(results) {
+
         console.log("Headers Found:", results.meta.fields);
 
         donors = results.data.map(row => ({
-            name: row["Name of the Student"] || "",
-            regno: row["Student Register Number"] || "",
-            department: row["Name of the Department"] || "",
-            year: row["Year of study"] || "",
-            phone: row["Contact Number"] || "",
-            email: row["Mail ID"] || "",
+            name: (row["Name of the Student "] || "").trim(),
+            regno: (row["Student Register Number"] || "").trim(),
+            department: (row["Name of the Department"] || "").trim(),
+            year: (row["Year of study"] || "").trim(),
+            phone: (row["Contact Number"] || "").trim(),
+            email: (row["Mail ID"] || "").trim(),
             blood: (row["Blood Group Type"] || "").trim().toUpperCase()
         }));
 
         console.log("Loaded Donors:", donors);
-    }
-});
+        console.log("Blood Groups:", [...new Set(donors.map(d => d.blood))]);
+    },
 
     error: function(err) {
         console.error("CSV Error:", err);
@@ -30,9 +30,13 @@ Papa.parse("donors.csv", {
 
 function showDonors() {
 
-    const blood = document.getElementById("bloodGroup").value.trim().toUpperCase();
+    const blood = document.getElementById("bloodGroup").value
+        .trim()
+        .toUpperCase();
 
-    const filtered = donors.filter(d => d.blood === blood);
+    const filtered = donors.filter(
+        d => d.blood === blood
+    );
 
     console.log("Selected:", blood);
     console.log("Matches:", filtered);
