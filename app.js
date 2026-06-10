@@ -4,21 +4,15 @@ Papa.parse("donors.csv", {
     download: true,
     header: true,
     skipEmptyLines: true,
-
     complete: function(results) {
 
-        console.log("Headers Found:", results.meta.fields);
-        console.log("Raw Data:", results.data);
+    console.log("Headers Found:");
+    console.table(results.meta.fields);
 
-        donors = results.data.map(row => ({
-            name: (row["Name of the Student "] || row["Name of the Student"] || "").trim(),
-            regno: (row["Student Register Number"] || "").trim(),
-            department: (row["Name of the Department"] || "").trim(),
-            year: (row["Year of study"] || "").trim(),
-            phone: (row["Contact Number"] || "").trim(),
-            email: (row["Mail ID"] || "").trim(),
-            blood: (row["Blood Group Type"] || "").trim().toUpperCase()
-        }));
+    console.log("First Row:");
+    console.log(results.data[0]);
+
+}
 
         console.log("Loaded Donors:", donors);
     },
