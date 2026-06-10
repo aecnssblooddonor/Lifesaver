@@ -1,3 +1,158 @@
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f7fb;
+    color:#333;
+    min-width:1200px; /* Desktop layout even on mobile */
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:nowrap;
+    background:#8B0000;
+    color:white;
+    padding:15px 25px;
+}
+
+.logo{
+    width:90px;
+    height:auto;
+}
+
+.title{
+    text-align:center;
+}
+
+.title h1{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.title h2{
+    font-size:20px;
+    font-weight:normal;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h2{
+    color:#c62828;
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+select{
+    padding:12px;
+    width:250px;
+    font-size:16px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    background:#8B0000;
+    color:white;
+}
+
+button:hover{
+    background:#c62828;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+#results{
+    width:95%;
+    margin:20px auto;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+th{
+    background:#8B0000;
+    color:white;
+    padding:12px;
+    text-align:center;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+
+tr:hover{
+    background:#fff5f5;
+}
+
+/* =========================
+   ADMIN LOGIN BUTTON
+========================= */
+
+.admin-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#8B0000;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:999;
+}
+
+.admin-btn:hover{
+    background:#c62828;
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
 #logoutBtn{
     position:fixed;
     bottom:20px;
@@ -6,21 +161,52 @@
     background:#2e7d32;
     color:white;
 
-    padding:6px 12px !important;
-    font-size:12px !important;
+    padding:8px 14px;
+    font-size:12px;
 
     border:none;
     border-radius:20px;
 
     cursor:pointer;
-    z-index:1000;
+    font-weight:bold;
 
-    width:auto;
-    min-width:auto;
-
-    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    z-index:999;
 }
 
 #logoutBtn:hover{
     background:#1b5e20;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+
+/* =========================
+   NO DONOR MESSAGE
+========================= */
+
+#results h3{
+    text-align:center;
+    color:red;
+    margin-top:20px;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    height:10px;
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#8B0000;
+    border-radius:5px;
 }
