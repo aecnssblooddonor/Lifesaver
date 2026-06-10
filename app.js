@@ -1,5 +1,6 @@
 let donors = [];
 
+// Load donors.csv
 Papa.parse("donors.csv", {
     download: true,
     header: true,
@@ -7,8 +8,10 @@ Papa.parse("donors.csv", {
 
     complete: function(results) {
 
+        console.log("Headers:", results.meta.fields);
+
         donors = results.data.map(row => ({
-            name: row["Name of the Student "] || "",
+            name: row["Name of the Student "] || row["Name of the Student"] || "",
             regno: row["Student Register Number"] || "",
             department: row["Name of the Department"] || "",
             year: row["Year of study"] || "",
@@ -17,11 +20,11 @@ Papa.parse("donors.csv", {
             blood: row["Blood Group Type"] || ""
         }));
 
-        console.log("Loaded donors:", donors);
+        console.log("Loaded Donors:", donors);
     },
 
-    error: function(err) {
-        console.error("CSV loading error:", err);
+    error: function(error) {
+        console.error("CSV Loading Error:", error);
     }
 });
 
@@ -29,8 +32,13 @@ function showDonors() {
 
     let blood = document.getElementById("bloodGroup").value;
 
+    if (blood === "") {
+        alert("Please select a blood group");
+        return;
+    }
+
     let filtered = donors.filter(
-        d => d.blood.trim().toUpperCase() === blood.trim().toUpperCase()
+        donor => donor.blood.trim().toUpperCase() === blood.toUpperCase()
     );
 
     let html = "";
@@ -42,21 +50,23 @@ function showDonors() {
     } else {
 
         html = `
-        <table border="1">
+        <table border="1" cellpadding="10" cellspacing="0">
             <tr>
                 <th>Name</th>
                 <th>Department</th>
                 <th>Blood Group</th>
+                <th>Phone</th>
             </tr>
         `;
 
-        filtered.forEach(d => {
+        filtered.forEach(donor => {
 
             html += `
             <tr>
-                <td>${d.name}</td>
-                <td>${d.department}</td>
-                <td>${d.blood}</td>
+                <td>${donor.name}</td>
+                <td>${donor.department}</td>
+                <td>${donor.blood}</td>
+                <td>${donor.phone}</td>
             </tr>
             `;
 
