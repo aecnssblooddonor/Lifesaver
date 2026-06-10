@@ -82,3 +82,19 @@ function logout() {
     alert("Admin Logged Out");
     location.reload();
 }
+window.onload = function() {
+
+    if (localStorage.getItem("isAdmin") === "true") {
+        document.getElementById("logoutBtn").style.display = "inline-block";
+    }
+
+};
+
+function logout() {
+
+    localStorage.removeItem("isAdmin");
+
+    alert("Admin Logged Out Successfully");
+
+    location.reload();
+}
