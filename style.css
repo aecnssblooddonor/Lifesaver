@@ -44,6 +44,12 @@ body{
 }
 
 .title h2{
+    font-size:12px;
+    font-weight:normal;
+}
+}
+
+.title h3{
     font-size:20px;
     font-weight:normal;
 }
