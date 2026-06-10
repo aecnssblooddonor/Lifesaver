@@ -1,79 +1,262 @@
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#f8f8f8;
+/* =========================
+   GLOBAL STYLES
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f4f7fb;
+    color:#333;
+    min-height:100vh;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px;
-background:#8B0000;
-color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,#8B0000,#c62828);
+    color:white;
+    padding:15px 25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
 
 .logo{
-width:90px;
-height:auto;
+    width:90px;
+    height:auto;
 }
 
 .title{
-text-align:center;
+    text-align:center;
 }
+
+.title h1{
+    font-size:30px;
+    margin-bottom:5px;
+}
+
+.title h2{
+    font-size:20px;
+    font-weight:400;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero{
-text-align:center;
-padding:40px;
+    text-align:center;
+    padding:40px 20px;
 }
 
-select,button{
-padding:12px;
-margin:10px;
+.hero h2{
+    color:#c62828;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+select{
+    padding:12px;
+    width:250px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+    outline:none;
 }
 
 button{
-background:#8B0000;
-color:white;
-border:none;
-cursor:pointer;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
 }
+
+/* Find Donor Button */
+
+.hero button{
+    background:#c62828;
+    color:white;
+}
+
+.hero button:hover{
+    background:#8B0000;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   RESULTS
+========================= */
 
 #results{
-padding:20px;
+    width:95%;
+    margin:auto;
+    margin-bottom:50px;
 }
+
+/* =========================
+   TABLE
+========================= */
 
 table{
-width:100%;
-border-collapse:collapse;
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-th,td{
-border:1px solid #ccc;
-padding:10px;
+th{
+    background:#8B0000;
+    color:white;
+    padding:15px;
+    text-align:center;
 }
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+
+tr:hover{
+    background:#fff3f3;
+}
+
+/* =========================
+   ADMIN LOGIN BUTTON
+========================= */
+
+.admin-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#8B0000;
+    color:white;
+    border:none;
+    padding:14px 24px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:1000;
+}
+
+.admin-btn:hover{
+    background:#c62828;
+    transform:scale(1.05);
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+#logoutBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:50px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    z-index:1000;
+}
+
+#logoutBtn:hover{
+    background:#1b5e20;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
 @media(max-width:768px){
 
-.header{
-flex-direction:column;
+    .header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .logo{
+        width:70px;
+        margin:10px 0;
+    }
+
+    .title h1{
+        font-size:22px;
+    }
+
+    .title h2{
+        font-size:16px;
+    }
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    select{
+        width:90%;
+    }
+
+    .hero button{
+        width:90%;
+        margin-top:10px;
+    }
+
+    table{
+        font-size:12px;
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+    .admin-btn{
+        bottom:15px;
+        right:15px;
+        padding:12px 18px;
+    }
+
+    #logoutBtn{
+        top:10px;
+        right:10px;
+        padding:10px 15px;
+    }
 }
 
-.logo{
-width:70px;
-}
+/* =========================
+   NO DONOR MESSAGE
+========================= */
 
-}
-.admin-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#8B0000;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
+#results h3{
+    text-align:center;
+    color:#c62828;
+    margin-top:20px;
+    font-size:22px;
 }
