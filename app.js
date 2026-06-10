@@ -7,8 +7,6 @@ Papa.parse("donors.csv", {
 
     complete: function(results) {
 
-        console.log("Headers Found:", results.meta.fields);
-
         donors = results.data.map(row => ({
             name: (row["Name of the Student "] || "").trim(),
             regno: (row["Student Register Number"] || "").trim(),
@@ -19,8 +17,7 @@ Papa.parse("donors.csv", {
             blood: (row["Blood Group Type"] || "").trim().toUpperCase()
         }));
 
-        console.log("Loaded Donors:", donors);
-        console.log("Blood Groups:", [...new Set(donors.map(d => d.blood))]);
+        console.log("Total Donors Loaded:", donors.length);
     },
 
     error: function(err) {
@@ -38,8 +35,7 @@ function showDonors() {
         d => d.blood === blood
     );
 
-    console.log("Selected:", blood);
-    console.log("Matches:", filtered);
+    const isAdmin = localStorage.getItem("isAdmin") === "true";
 
     let html = "";
 
@@ -55,17 +51,18 @@ function showDonors() {
                 <th>Name</th>
                 <th>Department</th>
                 <th>Blood Group</th>
-                <th>Phone</th>
+                ${isAdmin ? "<th>Phone Number</th>" : ""}
             </tr>
         `;
 
         filtered.forEach(d => {
+
             html += `
             <tr>
                 <td>${d.name}</td>
                 <td>${d.department}</td>
                 <td>${d.blood}</td>
-                <td>${d.phone}</td>
+                ${isAdmin ? `<td>${d.phone}</td>` : ""}
             </tr>
             `;
         });
@@ -74,4 +71,10 @@ function showDonors() {
     }
 
     document.getElementById("results").innerHTML = html;
+}
+
+function logout() {
+    localStorage.removeItem("isAdmin");
+    alert("Admin Logged Out");
+    location.reload();
 }
