@@ -45,29 +45,33 @@ function showDonors() {
 
     } else {
 
-        html = `
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>Name</th>
-                <th>Department</th>
-                <th>Blood Group</th>
-                ${isAdmin ? "<th>Phone Number</th>" : ""}
-            </tr>
-        `;
+html = `
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Register No</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Blood Group</th>
+        ${isAdmin ? "<th>Phone Number</th>" : ""}
+    </tr>
+`;
 
-        filtered.forEach(d => {
+filtered.forEach(d => {
 
-            html += `
-            <tr>
-                <td>${d.name}</td>
-                <td>${d.department}</td>
-                <td>${d.blood}</td>
-                ${isAdmin ? `<td>${d.phone}</td>` : ""}
-            </tr>
-            `;
-        });
+    html += `
+    <tr>
+        <td>${d.regno}</td>
+        <td>${d.name}</td>
+        <td>${d.department}</td>
+        <td>${d.year}</td>
+        <td>${d.blood}</td>
+        ${isAdmin ? `<td>${d.phone}</td>` : ""}
+    </tr>
+    `;
+});
 
-        html += "</table>";
+html += "</table>";
     }
 
     document.getElementById("results").innerHTML = html;
