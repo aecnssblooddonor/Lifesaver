@@ -1,14 +1,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <script>
-  // Replace your old fetch('donors.json') code with this:
   fetch('donors.csv')
-    .then(response => response.text())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("HTTP error! Status: " + response.status);
+      }
+      return response.text();
+    })
     .then(csvData => {
-      // This automatically turns your CSV file into a perfect JSON array!
-      let donors = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
+      // 1. Parse the CSV using your Excel headers
+      let rawData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
       
-      // Now use the 'donors' variable exactly how you did before
-      console.log(donors); 
+      // 2. Map the Excel headers back to your original short JSON keys
+      let donors = rawData.map(row => ({
+        name: row['Name of the Student'] || row['Name of the Student '], // handles accidental trailing spaces
+        regno: row['Student Register Number'],
+        department: row['Name of the Department'],
+        year: row['Year of study'],
+        phone: row['Contact Number'],
+        email: row['Mail ID'],
+        blood: row['Blood Group Type']
+      }));
+      
+      // Now 'donors' is perfectly formatted exactly like your old JSON!
+      console.log("Successfully fetched and converted donors:", donors);
+      
+      // CALL YOUR DISPLAY FUNCTION HERE
+      // e.g., displayDonors(donors);
+      
+    })
+    .catch(error => {
+      console.error("Error fetching or parsing the CSV file:", error);
     });
 </script>
